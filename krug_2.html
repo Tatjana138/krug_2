@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Animation-circle</title>
+        <style>
+            body {
+                background-color: #050210;
+                margin: 0;
+                padding: 0;
+                height: 900px;
+            }
+            .circle {
+                height: 400px;
+                width: 400px;
+                border-radius: 50%;
+                background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+                position: relative;
+                margin: 0 auto;
+                top: 250px;
+                animation: animation 2s linear infinite;
+               }
+            .circle div {
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+                position: absolute;
+                animation: animation 2s linear infinite;
+            }
+             @keyframes animation {
+                0% { transform: rotate(0deg);
+                }                
+                100% {transform: rotate(360deg);
+                }
+            }
+            .circle div:nth-child(1) {
+                filter: blur(40px);
+            }
+            .circle::before {
+                content: '';
+                position: absolute;
+                top: 25px;
+                bottom: 25px;
+                right: 25px;
+                left: 25px;
+                background-color:#050210;
+                border-radius: 50%;
+                z-index: 2;
+            }
+            .circle::after {
+                content: '';
+                position: absolute;
+                top: 25px;
+                bottom: 25px;
+                right: 25px;
+                left: 25px;
+                background-color: #110c22;
+                border-radius: 50%;
+                animation: animation2 2s linear infinite;
+                opacity: 0;
+                z-index: 3;
+            }
+            
+            @keyframes animation2 {
+                0% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+                100% {
+                    transform: scale(0.7);
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle">
+            <div></div>
+         </div>
+        
+    </body>
+</html>
